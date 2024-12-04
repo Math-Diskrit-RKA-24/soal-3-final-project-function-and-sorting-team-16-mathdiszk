@@ -30,13 +30,13 @@ def setPlayer(player, key, value):
 def attackPlayer(attacker, target):
     if target['defense']:
         damage_diterima = max(0, attacker['damage'] - target['defensePower'],2)
-        setPlayer(attacker, 'score', attacker['score'] + 1)
+        setPlayer(attacker, 'score', round(attacker["score"] + 1 - 1 / target["defensePower"], 2))
     else:
         damage_diterima = attacker['damage']
         setPlayer(attacker, 'score', attacker['score'] + 1)
     
     setPlayer(target, 'health', target['health'] - damage_diterima)
-    setPlayer(target, 'defense', False)
+    setPlayer(target, 'defense', False)
 
 def displayMatchResult():
     peringkat = sorted(
