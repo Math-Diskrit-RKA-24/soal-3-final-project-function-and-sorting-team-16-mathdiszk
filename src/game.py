@@ -29,8 +29,8 @@ def setPlayer(player, key, value):
 
 def attackPlayer(attacker, target):
     if target['defense']:
-        damage_diterima = max(0, attacker['damage'] - target['defensePower'])
-        setPlayer(attacker, 'score', attacker['score'] + 0.8)
+        damage_diterima = max(0, attacker['damage'] - target['defensePower'],2)
+        setPlayer(attacker, 'score', attacker['score'] + 1)
     else:
         damage_diterima = attacker['damage']
         setPlayer(attacker, 'score', attacker['score'] + 1)
